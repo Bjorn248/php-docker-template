@@ -39,6 +39,8 @@ RUN install-shush && rm -rf /usr/local/bin/install-shush
 COPY src/php/utils/install-composer /usr/local/bin/
 RUN install-composer && rm -rf /usr/local/bin/install-composer
 
+RUN composer global require hirak/prestissimo --ansi --no-progress
+
 STOPSIGNAL SIGTERM
 
 ENTRYPOINT ["/usr/local/bin/shush", "exec", "docker-php-entrypoint"]
